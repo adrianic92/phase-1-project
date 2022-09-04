@@ -122,3 +122,12 @@ body {
     margin: 1rem 2rem;
     box-shadow: 3px 4px black
 }
+
+/* Random image only */
+#randomImage {
+    width: 200px;
+}
+
+
+
+
