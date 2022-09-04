@@ -153,3 +153,16 @@ body {
     font-size: 2rem;
     font-weight: bolder
 }
+
+#choiceList {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 2rem;
+    font-weight: bolder;
+    padding-left: 10%;
+    padding-right: 10%;
+    column-count: 3;
+    column-gap: 10rem;
+}
