@@ -42,3 +42,14 @@ body {
     padding: .7rem;
     border-radius: 1rem;
 }
+
+/* Papa Div for searching pokemon, including img and p */
+#showAll {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 1.15rem;
+    padding-left: 10%;
+    padding-right: 10%;
+}
