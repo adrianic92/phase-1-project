@@ -53,3 +53,16 @@ body {
     padding-left: 10%;
     padding-right: 10%;
 }
+
+#bubble {
+    display: block;
+    background: white;
+    padding: 3%;
+    border-radius: 2rem;
+    border: .3rem solid black;
+    height: 25rem;
+    width: 15rem;
+    text-align: center;
+    margin: 1rem 2rem;
+    box-shadow: 3px 4px black
+}
