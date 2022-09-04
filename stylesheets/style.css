@@ -133,4 +133,7 @@ body {
     color: black;
 }
 
-
+.randomClass{
+    font-weight: bolder;
+    align-items: center;
+}
