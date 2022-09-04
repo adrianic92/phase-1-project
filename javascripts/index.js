@@ -10,6 +10,7 @@ const ulContainer = document.getElementById("pokeContainer");
 
 form.addEventListener("submit", submitPoke)
 button.addEventListener("click", randomPoke)
+pokeDropdown.addEventListener("change", handleChange)
 
 function fetchPoke(name, foo) {
     fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
@@ -103,4 +104,22 @@ list(nameList);
 
 function makeList(pokemon, pokemonName, pokemonNumber) {
     nameList.push(`${capitalize(pokemonName)} - #${pokemonNumber}`)
+}
+
+function handleChange(e) {
+    const letter = e.target.value;
+    nameList.sort();
+    const filteredPoke = nameList.filter(poke => poke.startsWith(letter));
+    console.log(filteredPoke)
+    ulContainer.innerHTML = '';
+    renderLis(filteredPoke);
+}
+
+function renderLis(lis) {
+    lis.forEach(each => {
+        const li = document.createElement('li')
+        li.innerText = each
+        ulContainer.append(li)
+    }
+    )
 }
