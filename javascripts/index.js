@@ -90,3 +90,17 @@ function appendRandom(pokemon, pokemonName) {
     div.append(img,p)
     randomContainer.append(div)
 }
+
+function list(array) {
+    for (let i = 1; i < 906; i++) {
+        fetchPoke(i, makeList)
+    }
+    array.sort();
+    return array.sort();
+}
+
+list(nameList);
+
+function makeList(pokemon, pokemonName, pokemonNumber) {
+    nameList.push(`${capitalize(pokemonName)} - #${pokemonNumber}`)
+}
