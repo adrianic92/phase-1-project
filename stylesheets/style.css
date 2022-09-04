@@ -66,3 +66,12 @@ body {
     margin: 1rem 2rem;
     box-shadow: 3px 4px black
 }
+
+/* Image */
+.allPokemon {
+    position: relative;
+    padding: 1px;
+    background: white;
+    width: 200px;
+    line-height: 10px;
+}
