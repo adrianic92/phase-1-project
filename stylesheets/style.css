@@ -82,3 +82,14 @@ body {
     font-weight: bolder;
     font-size: 1.5rem;
 }
+
+/* Papa Random */
+#randomSection {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 2rem;
+    padding-left: 10%;
+    padding-right: 10%;
+}
