@@ -93,3 +93,17 @@ body {
     padding-left: 10%;
     padding-right: 10%;
 }
+
+/* Button */
+#random {
+    margin: 0 auto;
+    display: block;
+    font-weight: bolder;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    align-items: center;
+    font-size: 2rem;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+}
