@@ -107,3 +107,18 @@ body {
     padding: 1rem;
     border-radius: 1rem;
 }
+
+/* Div for Random Image and Text */
+#randomPokemon {
+    display: block;
+    background: white;
+    padding: 3%;
+    border-radius: 2rem;
+    border: .3rem solid black;
+    height: 20rem;
+    width: 15rem;
+    text-align: center;
+
+    margin: 1rem 2rem;
+    box-shadow: 3px 4px black
+}
