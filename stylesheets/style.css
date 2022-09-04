@@ -33,3 +33,12 @@ body {
 #pokemonInput {
     font-size: 2rem;
 }
+
+/* Submit Button */
+#submit {
+    font-size: 2rem;
+    font-weight: bolder;
+    background-color: white;
+    padding: .7rem;
+    border-radius: 1rem;
+}
