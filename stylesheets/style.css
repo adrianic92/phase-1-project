@@ -137,3 +137,14 @@ body {
     font-weight: bolder;
     align-items: center;
 }
+
+#papaChoice {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 2rem;
+    font-weight: bolder;
+    padding-left: 10%;
+    padding-right: 10%;
+}
