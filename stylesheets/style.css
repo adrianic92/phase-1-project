@@ -75,3 +75,10 @@ body {
     width: 200px;
     line-height: 10px;
 }
+
+/*Pokemon w/Number*/
+.nameNumber{
+    position: relative;
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
