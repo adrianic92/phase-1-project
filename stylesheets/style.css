@@ -166,3 +166,8 @@ body {
     column-count: 3;
     column-gap: 10rem;
 }
+
+#pokeContainer {
+    list-style: none;
+    column-count: 3;
+}
