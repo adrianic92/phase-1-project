@@ -9,6 +9,7 @@ const pokeDropdown = document.getElementById("pokeDropdown");
 const ulContainer = document.getElementById("pokeContainer");
 
 form.addEventListener("submit", submitPoke)
+button.addEventListener("click", randomPoke)
 
 function fetchPoke(name, foo) {
     fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
@@ -64,4 +65,28 @@ function appendPoke(pokemon, pokemonName, pokemonNumber, pokeArray) {
 
 function capitalize(a) {
     return a[0].toUpperCase() + a.slice(1);
+}
+
+function randomPoke() {
+    const number = Math.floor(Math.random() * 904) + 1;
+    fetchPoke(number, appendRandom);
+}
+
+function appendRandom(pokemon, pokemonName) {
+    randomContainer.innerHTML = "";
+    
+    const div = document.createElement("div")
+    const p = document.createElement("p")
+    const img = document.createElement("img")
+    
+    p.innerHTML = `<span class="randomClass">${capitalize(pokemonName)}</span>`
+    p.id = "randomPokemonName"
+        
+    img.src = `${pokemon}`
+    img.title = `${capitalize(pokemonName)}`
+    img.id = `randomImage`
+    
+    div.id = "randomPokemon"
+    div.append(img,p)
+    randomContainer.append(div)
 }
