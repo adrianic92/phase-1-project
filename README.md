@@ -8,13 +8,21 @@ The core features of the MPV consist of a random Pokemon display, which can be t
 I will use the API to obtain the information which includes names, numbers, pictures, and statistical information. The names and pictures shall be displayed through both the random Pokemon display and the form display. Additionally, the Pokemon statistics and Pokemon number identifier will also be displayed on the form display.
 
 ### Requirements
-* 
+* Stable Internet Connection
+* Recommended Browser: Google Chrome
 
 ### Installation Instructions
-* Fork and Clone
+* Fork and Clone this repository
 * Open index.html in the browser
 
+### Features
+* Display a Pokemon by inputting a Pokemon name or number into the form
+* Display a random Pokemon by clicking the random buttom
+* Display a list of Pokemon whose name begin with the selected letter from the dropdown
 
+### Credits
+* PokeAPI - https://pokeapi.co
+* Flatiron School
 
 
 
