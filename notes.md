@@ -1,4 +1,0 @@
-# Pokemon
-
-### Overview
-* Display Pokemon
