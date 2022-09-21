@@ -1,6 +1,7 @@
+// Declare variables here
 let counter = 0
 const body = document.body
-const papaDiv = document.getElementById("showAll")
+const showAll = document.getElementById("showAll")
 const button = document.getElementById("random")
 const randomContainer = document.getElementById("randomContainer")
 const form = document.getElementById("form")
@@ -8,15 +9,17 @@ const nameList = [];
 const pokeDropdown = document.getElementById("pokeDropdown");
 const ulContainer = document.getElementById("pokeContainer");
 
+// Assign event listeners
 form.addEventListener("submit", submitPoke)
 button.addEventListener("click", randomPoke)
 pokeDropdown.addEventListener("change", handleChange)
 
+// Fetch data
 function fetchPoke(name, foo) {
     fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
     .then(response => response.json())
     .then(data => {
-        const pokemon = data.sprites.other["official-artwork"]["front_default"]
+        const pokemonImage = data.sprites.other["official-artwork"]["front_default"]
         const pokemonName = data.name
         const pokemonNumber = data.id
         const hp = data.stats["0"]["base_stat"]
@@ -25,42 +28,41 @@ function fetchPoke(name, foo) {
         const spAttack = data.stats["3"]["base_stat"]
         const spDefense = data.stats["4"]["base_stat"]
         const speed = data.stats["5"]["base_stat"]
-        const pokeArray = [hp, attack, defense, spAttack, spDefense, speed]
-        foo(pokemon, pokemonName, pokemonNumber, pokeArray)
+        const pokeArray = [pokemonImage, pokemonName, pokemonNumber, hp, attack, defense, spAttack, spDefense, speed]
+        foo(pokeArray)
     })
 }
 
 function submitPoke(e) {
     e.preventDefault();
     if (counter>=2){
-        papaDiv.innerHTML = ""
+        showAll.innerHTML = ""
         counter = 0
     }
     counter++
-    console.log(e.target.box.value)
-    const pokemon = `${e.target.box.value.toLowerCase()}`;
-    console.log(pokemon)
-    fetchPoke(pokemon,appendPoke)
+    const name = `${e.target.box.value.toLowerCase()}`;
+    console.log(name)
+    fetchPoke(name,appendPoke)
     form.reset()
 }
 
-function appendPoke(pokemon, pokemonName, pokemonNumber, pokeArray) {
+function appendPoke(pokeArray) {
     const div = document.createElement("div")
     const p = document.createElement("p")
     const img = document.createElement("img")
     
-    p.innerHTML = `<span class="nameNumber">#${pokemonNumber}-${capitalize(pokemonName)}</span><br>HP: ${pokeArray[0]}<br>Attack: ${pokeArray[1]}<br>Defense: ${pokeArray[2]}<br>Sp. Attack: ${pokeArray[3]}<br>Sp. Defense: ${pokeArray[4]}<br>Speed: ${pokeArray[5]}`
+    p.innerHTML = `<span class="nameNumber">#${pokeArray[2]}-${capitalize(pokeArray[1])}</span><br>HP: ${pokeArray[3]}<br>Attack: ${pokeArray[4]}<br>Defense: ${pokeArray[5]}<br>Sp. Attack: ${pokeArray[6]}<br>Sp. Defense: ${pokeArray[7]}<br>Speed: ${pokeArray[8]}`
     p.className = "allPokemonNames"
         
     div.id = "bubble"
 
-    img.src = `${pokemon}`
-    img.title = `${capitalize(pokemonName)}`
+    img.src = `${pokeArray[0]}`
+    img.title = `${capitalize(pokeArray[1])}`
     img.className = "allPokemon"
-    img.id = `${pokemonName}`
+    img.id = `${pokeArray[1]}`
 
     div.append(img, p)
-    papaDiv.append(div)
+    showAll.append(div)
 
 }
 
@@ -73,18 +75,18 @@ function randomPoke() {
     fetchPoke(number, appendRandom);
 }
 
-function appendRandom(pokemon, pokemonName) {
+function appendRandom(place) {
     randomContainer.innerHTML = "";
     
     const div = document.createElement("div")
     const p = document.createElement("p")
     const img = document.createElement("img")
     
-    p.innerHTML = `<span class="randomClass">${capitalize(pokemonName)}</span>`
+    p.innerHTML = `<span class="randomClass">${capitalize(place[1])}</span>`
     p.id = "randomPokemonName"
         
-    img.src = `${pokemon}`
-    img.title = `${capitalize(pokemonName)}`
+    img.src = `${place[0]}`
+    img.title = `${capitalize(place[1])}`
     img.id = `randomImage`
     
     div.id = "randomPokemon"
@@ -102,8 +104,8 @@ function list(array) {
 
 list(nameList);
 
-function makeList(pokemon, pokemonName, pokemonNumber) {
-    nameList.push(`${capitalize(pokemonName)} - #${pokemonNumber}`)
+function makeList(pokeArray) {
+    nameList.push(`${capitalize(pokeArray[1])} - #${pokeArray[2]}`)
 }
 
 function handleChange(e) {
