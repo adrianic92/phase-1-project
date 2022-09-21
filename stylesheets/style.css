@@ -151,7 +151,8 @@ body {
 
 #pokeDropdown {
     font-size: 2rem;
-    font-weight: bolder
+    font-weight: bolder;
+    text-align: center;
 }
 
 #choiceList {
