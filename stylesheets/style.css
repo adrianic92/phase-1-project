@@ -1,6 +1,5 @@
 html {
     background: url("https://lh3.googleusercontent.com/pw/AL9nZEWW3gagUqs8wyXCJGMdd0xdD6O6Yfz9DQoy3NwSexAIWQ52g4DFRxrae1v15YtTIWvC4h8scz3-N8p5ASa2gxTM2989wkVI4dAAK4RHYsjAqN45GyZSNOuCEV3Db5Fzf2LmS_74YOF7FjIeJ1UxBE4Omg=w1459-h820-no?authuser=0%22");
-    
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -54,7 +53,7 @@ body {
     padding-right: 10%;
 }
 
-#bubble {
+#card {
     display: block;
     background: white;
     padding: 3%;
@@ -94,6 +93,10 @@ body {
     padding-right: 10%;
 }
 
+#randomContainer {
+    font-size: 1.15rem;
+}
+
 /* Button */
 #random {
     margin: 0 auto;
@@ -106,36 +109,6 @@ body {
     background-color: white;
     padding: 1rem;
     border-radius: 1rem;
-}
-
-/* Div for Random Image and Text */
-#randomPokemon {
-    display: block;
-    background: white;
-    padding: 3%;
-    border-radius: 2rem;
-    border: .3rem solid black;
-    height: 20rem;
-    width: 15rem;
-    text-align: center;
-
-    margin: 1rem 2rem;
-    box-shadow: 3px 4px black
-}
-
-/* Random image only */
-#randomImage {
-    width: 200px;
-}
-
-/* Random text only */
-#randomPokemonName {
-    color: black;
-}
-
-.randomClass{
-    font-weight: bolder;
-    align-items: center;
 }
 
 #papaChoice {

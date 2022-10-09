@@ -41,29 +41,14 @@ function submitPoke(e) {
     }
     counter++
     const name = `${e.target.box.value.toLowerCase()}`;
-    console.log(name)
     fetchPoke(name,appendPoke)
     form.reset()
 }
 
 function appendPoke(pokeArray) {
     const div = document.createElement("div")
-    const p = document.createElement("p")
-    const img = document.createElement("img")
-    
-    p.innerHTML = `<span class="nameNumber">#${pokeArray[2]}-${capitalize(pokeArray[1])}</span><br>HP: ${pokeArray[3]}<br>Attack: ${pokeArray[4]}<br>Defense: ${pokeArray[5]}<br>Sp. Attack: ${pokeArray[6]}<br>Sp. Defense: ${pokeArray[7]}<br>Speed: ${pokeArray[8]}`
-    p.className = "allPokemonNames"
-        
-    div.id = "bubble"
-
-    img.src = `${pokeArray[0]}`
-    img.title = `${capitalize(pokeArray[1])}`
-    img.className = "allPokemon"
-    img.id = `${pokeArray[1]}`
-
-    div.append(img, p)
+    createCard(pokeArray, div)
     showAll.append(div)
-
 }
 
 function capitalize(a) {
@@ -75,22 +60,10 @@ function randomPoke() {
     fetchPoke(number, appendRandom);
 }
 
-function appendRandom(place) {
+function appendRandom(pokeArray) {
     randomContainer.innerHTML = "";
-    
-    const div = document.createElement("div")
-    const p = document.createElement("p")
-    const img = document.createElement("img")
-    
-    p.innerHTML = `<span class="randomClass">${capitalize(place[1])}</span>`
-    p.id = "randomPokemonName"
-        
-    img.src = `${place[0]}`
-    img.title = `${capitalize(place[1])}`
-    img.id = `randomImage`
-    
-    div.id = "randomPokemon"
-    div.append(img,p)
+    const div = document.createElement("div");
+    createCard(pokeArray, div)
     randomContainer.append(div)
 }
 
@@ -112,7 +85,6 @@ function handleChange(e) {
     const letter = e.target.value;
     nameList.sort();
     const filteredPoke = nameList.filter(poke => poke.startsWith(letter));
-    console.log(filteredPoke)
     ulContainer.innerHTML = '';
     renderLis(filteredPoke);
 }
@@ -124,4 +96,20 @@ function renderLis(lis) {
         ulContainer.append(li)
     }
     )
+}
+
+function createCard(pokeArray, div) {
+    const p = document.createElement("p")
+    const img = document.createElement("img")
+    
+    p.innerHTML = `<span class="nameNumber">#${pokeArray[2]}-${capitalize(pokeArray[1])}</span><br>HP: ${pokeArray[3]}<br>Attack: ${pokeArray[4]}<br>Defense: ${pokeArray[5]}<br>Sp. Attack: ${pokeArray[6]}<br>Sp. Defense: ${pokeArray[7]}<br>Speed: ${pokeArray[8]}`
+    p.className = "allPokemonNames"
+        
+    div.id = "card"
+
+    img.src = `${pokeArray[0]}`
+    img.title = `${capitalize(pokeArray[1])}`
+    img.className = "allPokemon"
+    img.id = `${pokeArray[1]}`
+    div.append(img, p)
 }
