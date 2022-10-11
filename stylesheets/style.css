@@ -53,6 +53,7 @@ body {
     padding-right: 10%;
 }
 
+/* Pokemon Card */
 #card {
     display: block;
     background: white;
@@ -93,6 +94,7 @@ body {
     padding-right: 10%;
 }
 
+/* Container for Random Pokemon */
 #randomContainer {
     font-size: 1.15rem;
 }
@@ -111,6 +113,7 @@ body {
     border-radius: 1rem;
 }
 
+/* Select Section Main */
 #papaChoice {
     text-align: center;
     align-items: center;
@@ -122,12 +125,14 @@ body {
     padding-right: 10%;
 }
 
+/* Dropdown of Select Section */
 #pokeDropdown {
     font-size: 2rem;
     font-weight: bolder;
     text-align: center;
 }
 
+/* Dropdown Selection List */
 #choiceList {
     text-align: center;
     align-items: center;
@@ -141,6 +146,7 @@ body {
     column-gap: 10rem;
 }
 
+/* Pokemon Selection Container */
 #pokeContainer {
     list-style: none;
     column-count: 3;
