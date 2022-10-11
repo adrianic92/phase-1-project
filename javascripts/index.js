@@ -5,6 +5,7 @@ const showAll = document.getElementById("showAll")
 const button = document.getElementById("random")
 const randomContainer = document.getElementById("randomContainer")
 const form = document.getElementById("form")
+const pokeObjs = [];
 const nameList = [];
 const pokeDropdown = document.getElementById("pokeDropdown");
 const ulContainer = document.getElementById("pokeContainer");
@@ -35,14 +36,23 @@ function fetchPoke(name, foo) {
 
 function submitPoke(e) {
     e.preventDefault();
-    if (counter>=2){
-        showAll.innerHTML = ""
-        counter = 0
-    }
-    counter++
-    const name = `${e.target.box.value.toLowerCase()}`;
-    fetchPoke(name,appendPoke)
+    let found
+    const input = `${e.target.box.value.toLowerCase()}`;
+    pokeObjs.forEach(pokemon => {
+        if ((input === pokemon.name) || (input === pokemon.number)) {
+            if (counter>=2) {
+                showAll.innerHTML = ""
+                counter = 0
+            }
+            found = input
+            counter++
+            fetchPoke(input,appendPoke)
+        }
+    })
     form.reset()
+    if (found === undefined) {
+        alert("Uh oh! That's an invalid entry!\nPlease enter a valid Pokemon name or number between 1 and 905!")
+    }
 }
 
 function appendPoke(pokeArray) {
@@ -67,18 +77,32 @@ function appendRandom(pokeArray) {
     randomContainer.append(div)
 }
 
-function list(array) {
-    for (let i = 1; i < 906; i++) {
-        fetchPoke(i, makeList)
-    }
-    array.sort();
-    return array.sort();
+// fetch pokemon with one fetch request
+function pokeGrab() {
+    fetch(`https://pokeapi.co/api/v2/pokemon?limit=905`)
+    .then(resp => resp.json())
+    .then(data => {
+        let allPokemon = data.results
+        allPokemon.forEach(pokemon => {
+            let obj = {}
+            let splitURL = pokemon.url.split("/")
+            obj.name = pokemon.name
+            obj.number = splitURL[splitURL.length - 2]
+            obj.url = pokemon.url
+            pokeObjs.push(obj)
+        })
+        createList()
+    })
 }
 
-list(nameList);
+pokeGrab()
 
-function makeList(pokeArray) {
-    nameList.push(`${capitalize(pokeArray[1])} - #${pokeArray[2]}`)
+function createList() {
+    pokeObjs.forEach(pokemon => makeList(pokemon))
+}
+
+function makeList(pokemon) {
+    nameList.push(`${capitalize(pokemon.name)} - #${pokemon.number}`)
 }
 
 function handleChange(e) {
